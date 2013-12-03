@@ -3,7 +3,7 @@
 mainwin 75 25
 do : cls
 cls : call getData nme1$, nme2$, mode
-cls : call printResults nme1$, nme2$, mode,
+cls : call printResults nme1$, nme2$, mode
 do : x=x+1 : loop until x=860000
 confirm "Do you want to end the program?";finish$
 loop until finish$ = "yes"
@@ -42,16 +42,10 @@ sub printResults n1$, n2$, m
     'print"/_/    \_\__,_|\__,_|_|\__|_|\___/|_| |_|     \/  \/ \__,_|_|    |_____/ \___\___/|_|  \___||___/"
     print : print
     print "Players -";tab(15);"Cards - "
-    print n1$;tab(15);  _________
-                       |Q |~~~|  |
-                       |+ /o,o\  |
-                       |  \_-_/  |
-                       | _-~+_-~ |
-                       |  /~-~\  |
-                       |  \o`o/ +|
-                       |  |___| Q|
-                        ~~~~~~~~~
-    print n2$;tab(15);
+    print n1$
+    print n2$
+    call cardChange n1$,n2$
+    
 end sub
 
 

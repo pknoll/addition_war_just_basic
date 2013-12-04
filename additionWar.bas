@@ -4,6 +4,7 @@ mainwin 75 25
 do : cls
 cls : call getData nme1$, nme2$, mode
 cls : call printResults nme1$, nme2$, mode
+call cardChange num1,num2
 do : x=x+1 : loop until x=860000
 confirm "Do you want to end the program?";finish$
 loop until finish$ = "yes"
@@ -21,14 +22,20 @@ sub getData byref n1$, byref n2$, byref m
     print : print
     print "1. Player vs Player"
     print "2. Player vs Computer" : print
-    input "Enter the number corresponding to the game mode you wish to play:  ";m
+    do
+        input "Enter the number corresponding to the game mode you wish to play:  ";m
+    loop until m=1 or m=2
     cls : print line1$ : print line2$ : print line3$ : print line4$ : print line5$ : print line6$
     print : print
     if m = 1 then
-        input "Enter Player 1's name:  ";n1$
-        input "Enter Player 2's name:  ";n2$
+        do
+            input "Enter Player 1's name:  ";n1$
+        loop until nl$ <> ""
+        'do
+            input "Enter Player 2's name:  ";n2$
+        'loop until n2$ <> ""
     else
-        input "Enter your name:  ";n1$ : n2$ = "NO PLAYER 2"
+        input "Enter your name:  ";n1$ : n2$ = "Computer"
     end if
 end sub
 
@@ -44,11 +51,27 @@ sub printResults n1$, n2$, m
     print "Players -";tab(15);"Cards - "
     print n1$
     print n2$
-    call cardChange n1$,n2$
-    
 end sub
 
 
 function randomNumber(n)
     randomNumber = int(rnd(0)*13)+1
 end function
+
+
+sub cardChange n1,n2
+        n1=randomNumber(n1)
+        select n1
+            case n1=1
+          print " _________"
+          print "|A        |"
+          print "|@   *    |"
+          print "|   / \   |"
+          print "|  /_@_\  |"
+          print "|    !    |"
+          print "|   ~ ~  @|"
+          print "|        V|"
+          print " ~~~~~~~~~ "
+          end select
+end sub
+

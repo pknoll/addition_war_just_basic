@@ -6,4 +6,6 @@ Final project for Pioneer Buissness School (https://sites.google.com/site/kpsofb
 Code by Aaron Raimist and Paul Knoll
 
 
+http://www.network-science.de/ascii/
+http://www.figlet.org/
 ASCII Playing Cards provided by Bej  -  bej@druid.if.uj.edu.pl

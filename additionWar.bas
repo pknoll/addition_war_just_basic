@@ -2,8 +2,8 @@
 ' Final Program
 mainwin 75 25
 do : cls
-cls : call getData nme1$, nme2$, mode, line1$, line2$, line3$, line4$, line5$, line6$
-cls : call printResults nme1$, nme2$, mode, line1$, line2$, line3$, line4$, line5$, line6$
+cls : call getData nme1$, nme2$, mode
+cls : call printResults nme1$, nme2$, mode
 call cardChange num1,num2
 do : x=x+1 : loop until x=860000
 confirm "Do you want to end the program?";finish$
@@ -11,7 +11,7 @@ loop until finish$ = "yes"
 end
 
 
-sub getData byref n1$, byref n2$, byref m, byref line1$, byref line2$, byref line3$, byref line4$, byref line5$, byref line6$
+sub getData byref n1$, byref n2$, byref m
     mainwin 103 25
     line1$="             _     _ _ _   _              __          __        _ ":print line1$
     line2$="    /\      | |   | (_) | (_)             \ \        / /       | |":print line2$
@@ -28,28 +28,30 @@ sub getData byref n1$, byref n2$, byref m, byref line1$, byref line2$, byref lin
     cls : print line1$ : print line2$ : print line3$ : print line4$ : print line5$ : print line6$
     print : print
     if m = 1 then
-        'do
+        do
             input "Enter Player 1's name:  ";n1$
-        'loop until nl$ <> ""
-        'do
+        loop until n1$ <> ""
+        do
             input "Enter Player 2's name:  ";n2$
-        'loop until n2$ <> ""
+        loop until n2$ <> ""
     else
-        input "Enter your name:  ";n1$ : n2$ = "Computer"
+        do
+            input "Enter your name:  ";n1$ : n2$ = "Computer"
+        loop until n1$ <> ""
     end if
 end sub
 
 
-sub printResults n1$, n2$, m, line1$, line2$, line3$, line4$, line5$, line6$
-    print line1$;"   _____                 _ _"
-    print line2$;"  |  __ \               | | |"
-    print line3$;"  | |__) |___  ___ _   _| | |_ ___"
-    print line4$;"  |  _  // _ \/ __| | | | | __/ __|"
-    print line5$;"  | | \ \  __/\__ \ |_| | | |_\__ \"
-    print line6$;"  |_|  \_\___||___/\__,_|_|\__|___/"
+sub printResults n1$, n2$, m
+    'print"             _     _ _ _   _              __          __           _____                         "
+    'print"    /\      | |   | (_) | (_)             \ \        / /          / ____|                        "
+    'print"   /  \   __| | __| |_| |_ _  ___  _ __    \ \  /\  / /_ _ _ __  | (___   ___ ___  _ __ ___  ___ "
+    'print"  / /\ \ / _` |/ _` | | __| |/ _ \| '_ \    \ \/  \/ / _` | '__|  \___ \ / __/ _ \| '__/ _ \/ __|"
+    'print" / ____ \ (_| | (_| | | |_| | (_) | | | |    \  /\  / (_| | |     ____) | (_| (_) | | |  __/\__ \"
+    'print"/_/    \_\__,_|\__,_|_|\__|_|\___/|_| |_|     \/  \/ \__,_|_|    |_____/ \___\___/|_|  \___||___/"
     print : print
     print "Players -";tab(15);"Cards - "
-    print n1$
+    print n1$ 
     print n2$
 end sub
 
@@ -62,16 +64,26 @@ end function
 sub cardChange n1,n2
         n1=randomNumber(n1)
         select n1
-            case n1=1
-          print " _________"
-          print "|A        |"
-          print "|@   *    |"
-          print "|   / \   |"
-          print "|  /_@_\  |"
-          print "|    !    |"
-          print "|   ~ ~  @|"
-          print "|        V|"
-          print " ~~~~~~~~~ "
+          case n1=1
+            print " _________"
+            print "|A        |"
+            print "|@   *    |"
+            print "|   / \   |"
+            print "|  /_@_\  |"
+            print "|    !    |"
+            print "|   ~ ~  @|"
+            print "|        V|"
+            print " ~~~~~~~~~ "
+          case n1 = 2
+             _________
+            |2        |
+         |#        |
+         |    #    |
+         |         |
+         |    #    |
+         |        #|
+         |        Z|
+          ~~~~~~~~~
           end select
 end sub
 

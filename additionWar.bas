@@ -28,14 +28,18 @@ sub getData byref n1$, byref n2$, byref m, byref line1$, byref line2$, byref lin
     cls : print line1$ : print line2$ : print line3$ : print line4$ : print line5$ : print line6$
     print : print
     if m = 1 then
-        'do
+        do
             input "Enter Player 1's name:  ";n1$
-        'loop until nl$ <> ""
-        'do
+        loop until nl$ <> ""
+        do
             input "Enter Player 2's name:  ";n2$
-        'loop until n2$ <> ""
+        loop until n2$ <> ""
     else
-        input "Enter your name:  ";n1$ : n2$ = "Computer"
+        do
+
+            input "Enter your name:  ";n1$ : n2$ = "Computer"
+
+        loop until n1$ <> ""
     end if
 end sub
 
@@ -62,16 +66,26 @@ end function
 sub cardChange n1,n2
         n1=randomNumber(n1)
         select n1
-            case n1=1
-          print " _________"
-          print "|A        |"
-          print "|@   *    |"
-          print "|   / \   |"
-          print "|  /_@_\  |"
-          print "|    !    |"
-          print "|   ~ ~  @|"
-          print "|        V|"
-          print " ~~~~~~~~~ "
+          case n1=1
+            print " _________"
+            print "|A        |"
+            print "|@   *    |"
+            print "|   / \   |"
+            print "|  /_@_\  |"
+            print "|    !    |"
+            print "|   ~ ~  @|"
+            print "|        V|"
+            print " ~~~~~~~~~ "
+          case n1 = 2
+             _________
+            |2        |
+         |#        |
+         |    #    |
+         |         |
+         |    #    |
+         |        #|
+         |        Z|
+          ~~~~~~~~~
           end select
 end sub
 

@@ -8,6 +8,7 @@ call cardChange num1, nme1$
 call cardChange num1, nme1$
 call cardChange num1, nme2$
 call cardChange num1, nme2$
+call thanks
 do : x=x+1 : loop until x=860000
 confirm "Do you want to end the program?";finish$
 loop until finish$ = "yes"
@@ -201,3 +202,7 @@ sub cardChange byref n1,nme$
         end select
 end sub
 
+
+sub thanks
+    print "This program uses Bej's playing cards  -   bej@druid.if.uj.edu.pl"
+end sub

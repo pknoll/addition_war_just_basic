@@ -4,7 +4,10 @@ mainwin 75 25
 do : cls
 cls : call getData nme1$, nme2$, mode, line1$, line2$, line3$, line4$, line5$, line6$
 cls : call printResults nme1$, nme2$, mode, line1$, line2$, line3$, line4$, line5$, line6$
-call cardChange num1,num2
+call cardChange num1, nme1$
+call cardChange num1, nme1$
+call cardChange num1, nme2$
+call cardChange num1, nme2$
 do : x=x+1 : loop until x=860000
 confirm "Do you want to end the program?";finish$
 loop until finish$ = "yes"
@@ -30,7 +33,7 @@ sub getData byref n1$, byref n2$, byref m, byref line1$, byref line2$, byref lin
     if m = 1 then
         do
             input "Enter Player 1's name:  ";n1$
-        loop until nl$ <> ""
+        loop until n1$ <> ""
         do
             input "Enter Player 2's name:  ";n2$
         loop until n2$ <> ""
@@ -53,8 +56,6 @@ sub printResults n1$, n2$, m, line1$, line2$, line3$, line4$, line5$, line6$
     print line6$;"  |_|  \_\___||___/\__,_|_|\__|___/"
     print : print
     print "Players -";tab(15);"Cards - "
-    print n1$
-    print n2$
 end sub
 
 
@@ -63,11 +64,12 @@ function randomNumber(n)
 end function
 
 
-sub cardChange n1,n2
-        n1=randomNumber(n1)
-        select n1
-          case n1=1
-            print " _________"
+sub cardChange byref n1,nme$
+        n1 = randomNumber(n1)
+        print nme$ 
+        select case n1
+        case 1
+            print " _________ "
             print "|A        |"
             print "|@   *    |"
             print "|   / \   |"
@@ -76,16 +78,126 @@ sub cardChange n1,n2
             print "|   ~ ~  @|"
             print "|        V|"
             print " ~~~~~~~~~ "
-          case n1 = 2
-             _________
-            |2        |
-         |#        |
-         |    #    |
-         |         |
-         |    #    |
-         |        #|
-         |        Z|
-          ~~~~~~~~~
-          end select
+        case 2
+            print " _________ "
+            print "|2        |"
+            print "|#        |"
+            print "|    #    |"
+            print "|         |"
+            print "|    #    |"
+            print "|        #|"
+            print "|        Z|"
+            print " ~~~~~~~~~ "
+        case 3
+            print " _________ "
+            print "|3        |"
+            print "|@   @    |"
+            print "|         |"
+            print "|    @    |"
+            print "|         |"
+            print "|    @   @|"
+            print "|        E|"
+            print " ~~~~~~~~~ "
+        case 4
+            print " _________ "
+            print "|4        |"
+            print "|+        |"
+            print "|  +   +  |"
+            print "|         |"
+            print "|  +   +  |"
+            print "|        +|"
+            print "|        b|"
+            print " ~~~~~~~~~ "
+        case 5
+            print " _________ "
+            print "|5        |"
+            print "|O        |"
+            print "|  O   O  |"
+            print "|    O    |"
+            print "|  O   O  |"
+            print "|        O|"
+            print "|        S|"
+            print " ~~~~~~~~~ "
+        case 6
+            print " _________ "
+            print "|6        |"
+            print "|# #   #  |"
+            print "|         |"
+            print "|  #   #  |"
+            print "|         |"
+            print "|  #   # #|"
+            print "|        9|"
+            print " ~~~~~~~~~ "
+        case 7
+            print " _________ "
+            print "|7        |"
+            print "|@ @   @  |"
+            print "|    @    |"
+            print "|  @   @  |"
+            print "|         |"
+            print "|  @   @ @|"
+            print "|        L|"
+            print " ~~~~~~~~~ "
+        case 8
+            print " _________ "
+            print "|8 +   +  |"
+            print "|+        |"
+            print "|  +   +  |"
+            print "|         |"
+            print "|  +   +  |"
+            print "|        +|"
+            print "|  +   + 8|"
+            print " ~~~~~~~~~ "
+        case 9
+            print " _________ "
+            print "|9 O   O  |"
+            print "|O        |"
+            print "|  O   O  |"
+            print "|    O    |"
+            print "|  O   O  |"
+            print "|        O|"
+            print "|  O   O 6|"
+            print " ~~~~~~~~~ "
+        case 10
+            print " _________ "
+            print "|10#   #  |"
+            print "|#   #    |"
+            print "|  #   #  |"
+            print "|         |"
+            print "|  #   #  |"
+            print "|    #   #|"
+            print "|  #   #0l|"
+            print " ~~~~~~~~~ "
+        case 11
+            print " _________ "
+            print "|J /~~|_  |"
+            print "|@ ! -\   |"
+            print "|  \ -!   |"
+            print "|  ',\',  |"
+            print "|   I- \  |"
+            print "|   \- I @|"
+            print "|  ~|__/ P|"
+            print " ~~~~~~~~~ "
+        case 12
+            print " _________ "
+            print "|Q |~~~|  |"
+            print "|+ /o,o\  |"
+            print "|  \_-_/  |"
+            print "| _-~+_-~ |"
+            print "|  /~-~\  |"
+            print "|  \o`o/ +|"
+            print "|  |___| Q|"
+            print " ~~~~~~~~~ "
+        case 13
+            print " _________ "
+            print "|K |/|\|  |"
+            print "|O |o.o|  |"
+            print "|   \v/   |"
+            print "|  XXXXX  |"
+            print "|   /^\   |"
+            print "|  |o'o| O|"
+            print "|  |\|/| X|"
+            print " ~~~~~~~~~ "
+        end select
 end sub
 

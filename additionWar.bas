@@ -4,10 +4,12 @@ mainwin 75 25
 do : cls
 cls : call getData nme1$, nme2$, mode, line1$, line2$, line3$, line4$, line5$, line6$
 cls : call printResults nme1$, nme2$, mode, line1$, line2$, line3$, line4$, line5$, line6$
-call cardChange num1, nme1$
-call cardChange num1, nme1$
-call cardChange num1, nme2$
-call cardChange num1, nme2$
+for i = 1 to 2
+    call cardChange num1, nme1$
+next i
+for i = 1 to 2
+    call cardChange num1, nme2$
+next i
 call thanks
 do : x=x+1 : loop until x=860000
 confirm "Do you want to end the program?";finish$

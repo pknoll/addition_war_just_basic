@@ -2,8 +2,8 @@
 ' Final Program
 mainwin 75 25
 do : cls
-cls : call getData nme1$, nme2$, mode, line1$, line2$, line3$, line4$, line5$, line6$
-cls : call printResults nme1$, nme2$, mode, line1$, line2$, line3$, line4$, line5$, line6$
+cls : call getData nme1$, nme2$, mode, line1$, line2$, line3$, line4$, line5$, line6$,ace
+cls : call printResults nme1$, nme2$, mode, line1$, line2$, line3$, line4$, line5$, line6$,
 for i = 1 to 2
     call cardChange num1, nme1$
 next i
@@ -11,13 +11,13 @@ for i = 1 to 2
     call cardChange num1, nme2$
 next i
 call thanks
-do : x=x+1 : loop until x=860000
+do : x=x+1 : loop until x=1000000
 confirm "Do you want to end the program?";finish$
 loop until finish$ = "yes"
 end
 
 
-sub getData byref n1$, byref n2$, byref m, byref line1$, byref line2$, byref line3$, byref line4$, byref line5$, byref line6$
+sub getData byref n1$, byref n2$, byref m, byref line1$, byref line2$, byref line3$, byref line4$, byref line5$, byref line6$,byref ace
     mainwin 103 25
     line1$="             _     _ _ _   _              __          __        _ ":print line1$
     line2$="    /\      | |   | (_) | (_)             \ \        / /       | |":print line2$
@@ -31,6 +31,9 @@ sub getData byref n1$, byref n2$, byref m, byref line1$, byref line2$, byref lin
     do
         input "Enter the number corresponding to the game mode you wish to play:  ";m
     loop until m=1 or m=2
+    do
+        input "Enter value of ace (1 or 14) "; ace
+    loop until ace=1 or ace=14
     cls : print line1$ : print line2$ : print line3$ : print line4$ : print line5$ : print line6$
     print : print
     if m = 1 then
@@ -71,7 +74,7 @@ sub cardChange byref n1,nme$
         n1 = randomNumber(n1)
         print nme$ 
         select case n1
-        case 1
+        case ace
             print " _________ "
             print "|A        |"
             print "|@   *    |"
